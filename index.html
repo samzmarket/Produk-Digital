@@ -1,148 +1,73 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SAMZ MARKET-DIGITAL PRODUCT</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to right, #007bff, #00c6ff);
-      color: white;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: rgba(0, 0, 0, 0.3);
-      padding: 20px;
-      text-align: center;
-    }
-    .nav-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
-    .nav-buttons button {
-      padding: 10px 20px;
-      background-color: #ffffff;
-      color: #007bff;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .section-title {
-      text-align: center;
-      margin: 30px 0 10px;
-      font-size: 24px;
-      font-weight: 600;
-    }
-    .produk-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-    }
-    .produk {
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 20px;
-      width: 150px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
-    .produk a {
-      text-decoration: none;
-      color: white;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background-color: #25D366;
-      padding: 8px 12px;
-      border-radius: 6px;
-      margin-top: 10px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 30px;
-    }
-    input {
-      padding: 8px;
-      border: none;
-      border-radius: 6px;
-      width: 250px;
-    }
-    #addBtn {
-      background-color: #28a745;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SAMZ STORE - Top Up Diamond</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
-  <header>
-    <h1>SAMZ MARKET-DIGITAL PRODUCT</h1>
-    <div class="nav-buttons">
-      <button>Panel Pterodactyl</button>
-      <button>Vps Digital Ocean</button>
-      <button>Akun Cloud Digital Ocean</button>
-      <button>Promo All Product</button>
-    </div>
-  </header>
+  <header>
+    <h1>SAMZ STORE</h1>
+    <p>Top Up Game Murah, Cepat & Terpercaya</p>
+  </header>
 
-  <div class="section-title">Panel Bot WhatsApp</div>
+  <section class="form-section">
+    <h2>Masukkan ID Game</h2>
+    <form id="topupForm">
+      <input type="text" id="userId" placeholder="User ID" required />
+      <input type="text" id="serverId" placeholder="Server ID" required />
+    </form>
+  </section>
 
-  <form id="form-produk">
-    <input type="text" id="nama" placeholder="Nama Produk" required>
-    <input type="text" id="harga" placeholder="Harga (contoh: Rp 5.000)" required>
-    <input type="text" id="wa" placeholder="Link WhatsApp" required>
-    <button type="submit" id="addBtn">Tambah Produk</button>
-  </form>
+  <section class="produk-container">
+    <h2>Top Up Diamond ML</h2>
+    <div class="produk-list">
+      <div class="produk-card">
+        <img src="https://via.placeholder.com/150x150.png?text=86+DM" alt="86 DM" />
+        <h3>86 Diamond</h3>
+        <p class="harga">Rp 15.000</p>
+        <button onclick="beli('86 Diamond', '15000')">Beli Sekarang</button>
+      </div>
+      <div class="produk-card">
+        <img src="https://via.placeholder.com/150x150.png?text=172+DM" alt="172 DM" />
+        <h3>172 Diamond</h3>
+        <p class="harga">Rp 30.000</p>
+        <button onclick="beli('172 Diamond', '30000')">Beli Sekarang</button>
+      </div>
+      <div class="produk-card">
+        <img src="https://via.placeholder.com/150x150.png?text=257+DM" alt="257 DM" />
+        <h3>257 Diamond</h3>
+        <p class="harga">Rp 45.000</p>
+        <button onclick="beli('257 Diamond', '45000')">Beli Sekarang</button>
+      </div>
+    </div>
+  </section>
 
-  <div class="produk-list" id="produkList">
-    <div class="produk">
-      <h2>1GB</h2>
-      <p>Rp 2.000</p>
-      <a href="https://wa.me/628xxxxxxx">
-        <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="wa"> Order Sekarang
-      </a>
-    </div>
-    <!-- Produk lainnya ditambahkan di sini -->
-  </div>
+  <footer>
+    <p>© 2025 SAMZ STORE. All rights reserved.</p>
+  </footer>
 
-  <script>
-    const form = document.getElementById("form-produk");
-    const produkList = document.getElementById("produkList");
+  <script>
+    function beli(namaProduk, harga) {
+      const userId = document.getElementById("userId").value.trim();
+      const serverId = document.getElementById("serverId").value.trim();
 
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+      if (!userId || !serverId) {
+        alert("Masukkan User ID dan Server ID terlebih dahulu.");
+        return;
+      }
 
-      const nama = document.getElementById("nama").value;
-      const harga = document.getElementById("harga").value;
-      const wa = document.getElementById("wa").value;
+      const nomor = "6281234567890"; // Ganti dengan nomor WA kamu
+      const pesan = `Halo, saya ingin top up:\n\n- Produk: ${namaProduk}\n- Harga: Rp ${harga}\n- User ID: ${userId}\n- Server ID: ${serverId}`;
+      const url = `https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
 
-      const produkDiv = document.createElement("div");
-      produkDiv.classList.add("produk");
-      produkDiv.innerHTML = `
-        <h2>${nama}</h2>
-        <p>${harga}</p>
-        <a href="${wa}">
-          <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="wa"> Order Sekarang
-        </a>
-      `;
-
-      produkList.appendChild(produkDiv);
 
       form.reset();
     });
