@@ -1,53 +1,152 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SAMZ MARKET-DIGITAL PRODUCT</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAMZ MARKET-DIGITAL PRODUCT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #007bff, #00c6ff);
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      text-align: center;
+    }
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .nav-buttons button {
+      padding: 10px 20px;
+      background-color: #ffffff;
+      color: #007bff;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .section-title {
+      text-align: center;
+      margin: 30px 0 10px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .produk-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .produk {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 20px;
+      width: 150px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .produk a {
+      text-decoration: none;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background-color: #25D366;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    input {
+      padding: 8px;
+      border: none;
+      border-radius: 6px;
+      width: 250px;
+    }
+    #addBtn {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>SAMZ MARKET-DIGITAL PRODUCT</h1>
-    <div class="nav-buttons">
-      <button>Panel Pterodactyl</button>
-      <button>Vps Digital Ocean</button>
-      <button>Akun Cloud Digital Ocean</button>
-      <button>Promo All Product</button>
-    </div>
-  </header>
+  <header>
+    <h1>SAMZ MARKET-DIGITAL PRODUCT</h1>
+    <div class="nav-buttons">
+      <button>Panel Pterodactyl</button>
+      <button>Vps Digital Ocean</button>
+      <button>Akun Cloud Digital Ocean</button>
+      <button>Promo All Product</button>
+    </div>
+  </header>
 
-  <div class="section-title">Panel Bot WhatsApp</div>
-  <div class="produk-list">
-    <div class="produk">
-      <h2>1GB</h2>
-      <p>Rp 2.000</p>
-      <a href="https://wa.me/628xxxxxxx">
-        <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="wa"> Order Sekarang
-      </a>
-    </div>
-    <div class="produk">
-      <h2>2GB</h2>
-      <p>Rp 3.000</p>
-      <a href="https://wa.me/628xxxxxxx">
-        <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="wa"> Order Sekarang
-      </a>
-    </div>
-    <div class="produk">
-      <h2>3GB</h2>
-      <p>Rp 4.000</p>
-      <a href="https://wa.me/628xxxxxxx">
-        <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="wa"> Order Sekarang
-      </a>
-    </div>
-    <div class="produk">
-      <h2>4GB</h2>
-      <p>Rp 5.000</p>
-      <a href="https://wa.me/628xxxxxxx">
-        <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="wa"> Order Sekarang
-      </a>
-    </div>
-  </div>
+  <div class="section-title">Panel Bot WhatsApp</div>
+
+  <form id="form-produk">
+    <input type="text" id="nama" placeholder="Nama Produk" required>
+    <input type="text" id="harga" placeholder="Harga (contoh: Rp 5.000)" required>
+    <input type="text" id="wa" placeholder="Link WhatsApp" required>
+    <button type="submit" id="addBtn">Tambah Produk</button>
+  </form>
+
+  <div class="produk-list" id="produkList">
+    <div class="produk">
+      <h2>1GB</h2>
+      <p>Rp 2.000</p>
+      <a href="https://wa.me/628xxxxxxx">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="wa"> Order Sekarang
+      </a>
+    </div>
+    <!-- Produk lainnya ditambahkan di sini -->
+  </div>
+
+  <script>
+    const form = document.getElementById("form-produk");
+    const produkList = document.getElementById("produkList");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const nama = document.getElementById("nama").value;
+      const harga = document.getElementById("harga").value;
+      const wa = document.getElementById("wa").value;
+
+      const produkDiv = document.createElement("div");
+      produkDiv.classList.add("produk");
+      produkDiv.innerHTML = `
+        <h2>${nama}</h2>
+        <p>${harga}</p>
+        <a href="${wa}">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="wa"> Order Sekarang
+        </a>
+      `;
+
+      produkList.appendChild(produkDiv);
+
+      form.reset();
+    });
+  </script>
 </body>
 </html>
+
